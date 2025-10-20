@@ -134,14 +134,23 @@ $('document').ready(function(){
 	$('#light_candle').click(function(){
 		$('.fuego').fadeIn('slow');
 		$(this).fadeOut('slow').promise().done(function(){
-			$('#wish_message').fadeIn('slow');
+			$('#birthdayBtn').fadeIn('slow');
 		});
 	});
 
-		
-	$('#wish_message').click(function(){
-		 vw = $(window).width()/2;
 
+	$('#birthdayBtn').click(function(){
+		vw = $(window).width()/2;
+
+		// показываем надпись
+		const $text = $('#tanetchka');
+
+		$text.addClass('show'); // <- вот теперь точно навесится
+		setTimeout(() => {
+			$text.removeClass('show');
+		}, 4000); // исчезает через 4 секунды
+
+		// остальная анимация
 		$('#b1,#b2,#b3,#b4,#b5,#b6,#b7').stop();
 		$('#b1').attr('id','b11');
 		$('#b2').attr('id','b22')
@@ -163,7 +172,8 @@ $('document').ready(function(){
 			$('#story').fadeIn('slow');
 		});
 	});
-	
+
+
 	$('#story').click(function(){
 		$(this).fadeOut('slow');
 		$('.cake').fadeOut('fast').promise().done(function(){
